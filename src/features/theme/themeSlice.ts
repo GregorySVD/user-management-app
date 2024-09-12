@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
 
 interface ThemeState {
   theme: 'light' | 'dark';
 }
 
 const initialState: ThemeState = {
-  theme: 'light',
+  theme: (Cookies.get('theme') as 'light' | 'dark') || 'light',
 };
 
 const themeSlice = createSlice({
@@ -14,6 +15,7 @@ const themeSlice = createSlice({
   reducers: {
     toggleTheme(state) {
       state.theme = state.theme === 'light' ? 'dark' : 'light';
+      Cookies.set('theme', state.theme, { expires: 365 });
     },
   },
 });
