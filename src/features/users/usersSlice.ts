@@ -20,15 +20,22 @@ interface UsersState {
 // Initial state
 const initialState: UsersState = {
   users: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
 // Fetch users
-export const fetchUsers = createAsyncThunk<User[], void, { rejectValue: string }>('users/fetchUsers', async () => {
-  const response = await axios.get<User[]>(API_URL);
-  return response.data;
-});
+export const fetchUsers = createAsyncThunk<User[], void, { rejectValue: string }>(
+  'users/fetchUsers',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get<User[]>(API_URL);
+      return response.data;
+    } catch (err: any) {
+      return rejectWithValue('Failed to fetch users');
+    }
+  }
+);
 
 const usersSlice = createSlice({
   name: 'users',
