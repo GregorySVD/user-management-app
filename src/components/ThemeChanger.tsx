@@ -15,8 +15,8 @@ export const ThemeChanger: React.FC = () => {
   useBodyClass();
 
   return (
-    <div className="p-2 text-text-100 flex items-center justify-center btn btn-ghost text-xl dark:text-text-dark-100">
-      <label className="swap swap-rotate">
+    <div className="p-2 text-text-100 flex items-center justify-center btn btn-ghost text-xl dark:text-text-dark-100 group">
+      <label className="swap swap-rotate hover:animate-jump">
         <input type="checkbox" checked={theme === 'dark'} onChange={handleThemeChange} />
         {/* Sun icon */}
         <svg className="swap-on h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
