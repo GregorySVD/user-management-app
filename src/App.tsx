@@ -1,13 +1,14 @@
 import { UsersTable } from './components/UsersTable/UsersTable';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from './store';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer';
 import { useEffect } from 'react';
 import { CookieConsent } from './components/CookieConsent';
-import { AboutSection } from './components/AboutSection';
-import { SearchSection } from './components/SearchSection';
+import { AboutSection } from './components/AboutSection/AboutSection';
+import { SearchSection } from './components/SearchSection/SearchSection';
 import { setEmailFilter, setNameFilter, setPhoneFilter, setUsernameFilter } from './features/filter/filterSlice';
+import { StackUsedSection } from './components/StackUsedSection';
 
 function App() {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -46,28 +47,28 @@ function App() {
   const isAnyFilterActive = !!(name || username || email || phone);
 
   return (
-    <div
-      className={`${
-        theme === 'dark' ? `dark` : ''
-      } bg-bg-100 dark:bg-bg-dark-100 dark:text-text-dark-100 min-w-[300px] flex flex-col min-h-screen`}
-    >
-      <CookieConsent />
-      <Navbar />
-
-      <AboutSection />
-      <SearchSection
-        name={name}
-        username={username}
-        email={email}
-        phone={phone}
-        handleInputChange={handleInputChange}
-        isAnyFilterActive={isAnyFilterActive}
-      />
-
-      <UsersTable />
-
-      <Footer />
-    </div>
+    <section>
+      <div
+        className={`${
+          theme === 'dark' ? `dark` : ''
+        } bg-bg-100 dark:bg-bg-dark-100 dark:text-text-dark-100 min-w-[300px] flex flex-col min-h-screen`}
+      >
+        <CookieConsent />
+        <Navbar />
+        <AboutSection />
+        <StackUsedSection />
+        <SearchSection
+          name={name}
+          username={username}
+          email={email}
+          phone={phone}
+          handleInputChange={handleInputChange}
+          isAnyFilterActive={isAnyFilterActive}
+        />
+        <UsersTable />
+        <Footer />
+      </div>
+    </section>
   );
 }
 
