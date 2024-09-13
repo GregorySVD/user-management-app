@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../store';
-import { resetFilters } from '../features/filter/filterSlice';
+import { AppDispatch } from '../../store';
+import { resetFilters } from '../../features/filter/filterSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 
