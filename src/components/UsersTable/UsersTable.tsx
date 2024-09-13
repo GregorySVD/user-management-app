@@ -8,15 +8,12 @@ import { UserTableFooter } from './UsersTableFooter';
 import { UserAvatar } from '../UserAvatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { ErrorLayout } from '../ErrorLayout';
 
 export const UsersTable: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { users, loading, error } = useSelector((state: RootState) => state.users);
   const { name, username, email, phone } = useSelector((state: RootState) => state.filters);
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
 
   const filteredUsers = users.filter((user) => {
     const nameMatches = user.name.toLowerCase().includes(name.toLowerCase());
@@ -27,7 +24,7 @@ export const UsersTable: React.FC = () => {
   });
 
   if (loading) return <Spinner size="large" />;
-  if (error) return <p>{error}</p>;
+  if (error) return <ErrorLayout error={new Error(error)} reset={() => dispatch(fetchUsers())} />;
 
   return (
     <section id="table-section">
