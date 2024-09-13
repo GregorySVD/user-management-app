@@ -1,7 +1,7 @@
 export const UserTableHead = () => {
   return (
     <thead>
-      <tr className="bg-bg-200 dark:bg-bg-dark-300 text-text-200 dark:text-text-dark-200">
+      <tr className="bg-primary-200 dark:bg-primary-dark-200 text-text-200 dark:text-text-dark-200">
         <th>Name</th>
         <th>Username</th>
         <th>Email</th>
