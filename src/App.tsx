@@ -3,7 +3,6 @@ import { AppDispatch, RootState } from './store';
 import { useEffect } from 'react';
 import { fetchUsers } from './features/users/usersSlice';
 import { setEmailFilter, setNameFilter, setPhoneFilter, setUsernameFilter } from './features/filter/filterSlice';
-import { LoadingLayout } from './components/LoadingLayout';
 import { ErrorLayout } from './components/ErrorLayout';
 import { CookieConsent } from './components/CookieConsent';
 import { Navbar } from './components/Navbar/Navbar';
@@ -12,6 +11,7 @@ import { StackUsedSection } from './components/StackUsedSection';
 import { SearchSection } from './components/SearchSection/SearchSection';
 import { UsersTable } from './components/UsersTable/UsersTable';
 import { Footer } from './components/Footer';
+import { LoadingLayout } from './components/LoadingLayout';
 
 export const App = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -21,7 +21,7 @@ export const App = () => {
   const { name, username, email, phone } = useSelector((state: RootState) => state.filters);
 
   // Redux state for users
-  const { loading, error, users } = useSelector((state: RootState) => state.users);
+  const { loading, error } = useSelector((state: RootState) => state.users);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -71,7 +71,7 @@ export const App = () => {
   return (
     <section>
       <div
-        className={`bg-gradient-light dark:bg-gradient-dark dark:bg-bg-dark-100 dark:text-text-dark-100 text-text-100 min-w-[300px] flex flex-col min-h-screen`}
+        className={`bg-gradient-light dark:bg-gradient-dark dark:text-text-dark-100 text-text-100 min-w-[300px] flex flex-col min-h-screen`}
       >
         <CookieConsent />
         <Navbar />

@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: 'selector', // Enables dark mode with the 'dark' class
+  darkMode: 'class',
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     extend: {
@@ -17,6 +17,15 @@ module.exports = {
           'Helvetica Neue',
           'sans-serif',
         ],
+      },
+      fontSize: {
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+      },
+      backgroundImage: {
+        'gradient-light': 'linear-gradient(to bottom, #F5ECD7, #c2baa6)',
+        'gradient-dark': 'linear-gradient(to bottom, #0F1C2E, #374357)',
       },
       colors: {
         primary: {

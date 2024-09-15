@@ -58,7 +58,7 @@ export const StackUsedSection = () => {
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-6 bg-card rounded-lg shadow-md hover:animate-shake animate-ease-in-out"
+              className="flex flex-col items-center text-center p-6 bg-card rounded-lg shadow-md hover:animate-shake animate-ease-in-out bg-bg-200 dark:bg-bg-dark-200"
             >
               <div className="mb-4">{tech.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{tech.name}</h3>
