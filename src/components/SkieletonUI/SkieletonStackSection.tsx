@@ -18,7 +18,7 @@ export const SkeletonStackUsedSection = () => {
                 <div className="h-6 w-3/4" /> {/* Skeleton for the name */}
               </h3>
               <p className="text-muted-foreground text-sm">
-                <div className="h-4 w-5/6 mx-auto" /> {/* Skeleton for the description */}
+                <span className="block h-4 w-5/6 mx-auto" /> {/* Use span instead of div */}
               </p>
             </div>
           ))}
