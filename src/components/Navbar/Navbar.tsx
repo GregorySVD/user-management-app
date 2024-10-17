@@ -52,7 +52,7 @@ export const Navbar = () => {
         <DropdownNavMenu activeSection={activeSection} />
         <a className="btn btn-ghost text-xl hover:animate-jump" href="./">
           <img src="./icons8-user-color-96.png" className="h-8" alt="User Manager logo" />
-          Task Manager
+          User Manager
         </a>
       </div>
       <DesktopNavMenu activeSection={activeSection} />
